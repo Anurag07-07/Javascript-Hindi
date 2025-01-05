@@ -148,30 +148,3 @@ const greet = function(user) {
 }
 
 greet(user)
-
-// Stack and Heap Memory 
-
-//Only value is copied 
-
-let myname = "Anurag Raj"
-console.log(myname);
-
-let anothername = myname 
-anothername = "Aniket Raj"
-
-console.log(anothername);
-console.log(myname);
-
-//Due to reference both object value will be changes
-
-let user1 ={
-  email:"user@gmail.com",
-  upi:"user@ybl"
-}
-
-let user2 = user1;
-
-user1.email = "anurag07raj@gmail.com"
-console.log(user1);
-console.log(user2);
-
