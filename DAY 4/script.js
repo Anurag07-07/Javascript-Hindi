@@ -1,58 +1,150 @@
+// console.log(null > 0);
+// console.log(null == 0);
+// console.log(null >= 0);
+// console.log(null <= 0);
+
+// console.log(undefined > 0);
+// console.log(undefined == 0);
+// console.log(undefined >= 0);
+// console.log(undefined <= 0);
+
+
 /*
-NOTES
 
-Here's a breakdown of the code and its behavior:
+Let's break down the behavior of `null` and `undefined` in these comparisons in JavaScript, following the rules of type coercion and comparison.
 
-### Code Explanation
-1. **`"use strict"`**: 
-   - This directive enables strict mode, which helps in catching potential errors early by enforcing stricter parsing and error handling rules.
+---
 
-2. **Primitive Data Types**:
-   - The examples provided (`number`, `string`, `boolean`, `null`, `undefined`) cover the basic JavaScript data types.
-
-3. **Code Snippet**:
-   ```javascript
-   let name = "Anurag";   // string
-   let age = 18;          // number
-   let isloggedIn = false; // boolean
-   let state = null;       // null (intentionally empty value)
-   ```
-
-4. **Type Checking**:
-   - `console.log(typeof undefined);` prints `undefined` because the `typeof` operator returns the type of a variable or value, and `undefined` is its own type.
-   - `console.log(typeof null);` prints `object`, which is a known quirk in JavaScript. This behavior is due to a bug in the early implementation of JavaScript and has been retained for backward compatibility.
-
-### Notes on `typeof null`
-- **Reason**: The `typeof null` returning `"object"` is a result of how JavaScript's types were implemented. Null was represented with the value `0` in the underlying system, which also represents an object.
-- **Implications**: This can cause confusion when checking for `null`. A more accurate check for `null` is using:
-  ```javascript
-  if (value === null) {
-      console.log("The value is null");
-  }
+### Case 1: `console.log(null > 0);`
+- The `>` operator attempts to convert `null` to a number. 
+- When `null` is converted to a number, it becomes `0`. So this becomes:
   ```
+  0 > 0
+  ```
+- The result is `false`.
 
-Would you like an explanation or exploration of any other JavaScript concept?
+---
+
+### Case 2: `console.log(null == 0);`
+- The `==` operator performs a loose equality check, which does **not** perform numeric conversion for `null`.
+- The only values `null` is loosely equal to are `undefined` and itself:
+  ```
+  null == 0  // false
+  ```
+- So the result is `false`.
+
+---
+
+### Case 3: `console.log(null >= 0);`
+- The `>=` operator converts `null` to a number (as it does for `<`, `>`, `<=`, and `>=`).
+- `null` becomes `0`, so the comparison becomes:
+  ```
+  0 >= 0
+  ```
+- This evaluates to `true`.
+
+---
+
+### Case 4: `console.log(null <= 0);`
+- Similar to the `>=` case, `null` is converted to `0`:
+  ```
+  0 <= 0
+  ```
+- This evaluates to `true`.
+
+---
+
+### Case 5: `console.log(undefined > 0);`
+- The `>` operator tries to convert `undefined` to a number. When `undefined` is converted to a number, it becomes `NaN`.
+- Any comparison involving `NaN` (except `NaN != NaN`) is always `false`:
+  ```
+  NaN > 0  // false
+  ```
+- The result is `false`.
+
+---
+
+### Case 6: `console.log(undefined == 0);`
+- The `==` operator does not convert `undefined` to a number.
+- `undefined` is loosely equal only to `null` and itself:
+  ```
+  undefined == 0  // false
+  ```
+- The result is `false`.
+
+---
+
+### Case 7: `console.log(undefined >= 0);`
+- The `>=` operator converts `undefined` to `NaN` for numeric comparison.
+- Any comparison involving `NaN` is always `false`:
+  ```
+  NaN >= 0  // false
+  ```
+- The result is `false`.
+
+---
+
+### Case 8: `console.log(undefined <= 0);`
+- Similar to the `>=` case, `undefined` is converted to `NaN`, so:
+  ```
+  NaN <= 0  // false
+  ```
+- The result is `false`.
+
+---
+
+### Summary Table:
+| Expression          | Result  |
+|---------------------|---------|
+| `null > 0`          | `false` |
+| `null == 0`         | `false` |
+| `null >= 0`         | `true`  |
+| `null <= 0`         | `true`  |
+| `undefined > 0`     | `false` |
+| `undefined == 0`    | `false` |
+| `undefined >= 0`    | `false` |
+| `undefined <= 0`    | `false` |
+
+### Key Takeaways:
+1. `null` is converted to `0` in numeric comparisons (`>`, `<`, `>=`, `<=`).
+2. `null` is loosely equal (`==`) only to `undefined` and itself.
+3. `undefined` becomes `NaN` in numeric comparisons, and any comparison involving `NaN` is always `false`.
+4. `undefined` is loosely equal (`==`) only to `null` and itself.
+
+
 
 */
 
+// # Primitive
 
-"use strict" //treat all JS Code as newer version
+// 7 Types : String Number Boolean null undefined Symbol BigInt
 
-// alert(3+3); //we are using node js, not browser
+const id = Symbol('123')
+const anotherID = Symbol('123')
 
-let name = "Anurag"
-let age = 18
-let isloggedIn = false
-let state = null
+console.log(id === anotherID) //They both are not same
+// const bigNumber = 213154565421328186n;
 
-//Primitive data types
-//number => 2 to the power 33 has it range
-//BigInt
-//string
-//Boolean
-//null => standalone value
-//undefined => value not assign
-//Symbol 
 
-console.log(typeof undefined); //undefined
-console.log(typeof null);  //Object
+//Reference (Non Primitive)
+
+//Array Objects Functions
+
+//Array
+
+const cars = ["Lamborghini","Maclaren","Pagani","Ferrari"]
+
+//Object
+
+let user = {
+   name:"Anurag",
+   company:"Google"
+}
+
+//Function
+
+const greet = function(user) {
+   console.log(`Hello I am ${user.name} and I am working at ${user.company}`);  
+}
+
+greet(user)
