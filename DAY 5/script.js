@@ -1,150 +1,94 @@
-console.log(null > 0);
-console.log(null == 0);
-console.log(null >= 0);
-console.log(null <= 0);
+//*************************************************Strings ************************************/
+console.log("Hello"+"World");
 
-console.log(undefined > 0);
-console.log(undefined == 0);
-console.log(undefined >= 0);
-console.log(undefined <= 0);
+let name = "Anurag Raj"
+let repoCount = 10
 
+console.log(`Hello my name is ${name} and my repo count is ${repoCount}`);
 
-/*
+const name1 = new String("Anurag Raj"); //This has return Type Object
+console.log(name1.length);
+console.log(name1[0]);
+console.log(name1.__proto__);
+console.log(name1.charAt(4));
+console.log(name1.indexOf('A')); //if there is no element we get -1 as the value 
 
-Let's break down the behavior of `null` and `undefined` in these comparisons in JavaScript, following the rules of type coercion and comparison.
+const newString = name1.substring(0,4) //4 is not included
+console.log(newString);  
 
----
+const anotherString = name1.slice(0,4)
+console.log(anotherString);
 
-### Case 1: `console.log(null > 0);`
-- The `>` operator attempts to convert `null` to a number. 
-- When `null` is converted to a number, it becomes `0`. So this becomes:
-  ```
-  0 > 0
-  ```
-- The result is `false`.
+// Q what is difference between slice and substring
 
----
-
-### Case 2: `console.log(null == 0);`
-- The `==` operator performs a loose equality check, which does **not** perform numeric conversion for `null`.
-- The only values `null` is loosely equal to are `undefined` and itself:
-  ```
-  null == 0  // false
-  ```
-- So the result is `false`.
-
----
-
-### Case 3: `console.log(null >= 0);`
-- The `>=` operator converts `null` to a number (as it does for `<`, `>`, `<=`, and `>=`).
-- `null` becomes `0`, so the comparison becomes:
-  ```
-  0 >= 0
-  ```
-- This evaluates to `true`.
-
----
-
-### Case 4: `console.log(null <= 0);`
-- Similar to the `>=` case, `null` is converted to `0`:
-  ```
-  0 <= 0
-  ```
-- This evaluates to `true`.
-
----
-
-### Case 5: `console.log(undefined > 0);`
-- The `>` operator tries to convert `undefined` to a number. When `undefined` is converted to a number, it becomes `NaN`.
-- Any comparison involving `NaN` (except `NaN != NaN`) is always `false`:
-  ```
-  NaN > 0  // false
-  ```
-- The result is `false`.
-
----
-
-### Case 6: `console.log(undefined == 0);`
-- The `==` operator does not convert `undefined` to a number.
-- `undefined` is loosely equal only to `null` and itself:
-  ```
-  undefined == 0  // false
-  ```
-- The result is `false`.
-
----
-
-### Case 7: `console.log(undefined >= 0);`
-- The `>=` operator converts `undefined` to `NaN` for numeric comparison.
-- Any comparison involving `NaN` is always `false`:
-  ```
-  NaN >= 0  // false
-  ```
-- The result is `false`.
-
----
-
-### Case 8: `console.log(undefined <= 0);`
-- Similar to the `>=` case, `undefined` is converted to `NaN`, so:
-  ```
-  NaN <= 0  // false
-  ```
-- The result is `false`.
-
----
-
-### Summary Table:
-| Expression          | Result  |
-|---------------------|---------|
-| `null > 0`          | `false` |
-| `null == 0`         | `false` |
-| `null >= 0`         | `true`  |
-| `null <= 0`         | `true`  |
-| `undefined > 0`     | `false` |
-| `undefined == 0`    | `false` |
-| `undefined >= 0`    | `false` |
-| `undefined <= 0`    | `false` |
-
-### Key Takeaways:
-1. `null` is converted to `0` in numeric comparisons (`>`, `<`, `>=`, `<=`).
-2. `null` is loosely equal (`==`) only to `undefined` and itself.
-3. `undefined` becomes `NaN` in numeric comparisons, and any comparison involving `NaN` is always `false`.
-4. `undefined` is loosely equal (`==`) only to `null` and itself.
+const newStringOne = "    hitesh    "
+console.log(newStringOne);
+console.log(newStringOne.trim());
 
 
+const url = "https://anurag07raj.com/anurag%07raj"
+console.log(url.replace('%07','_'));
+console.log(url.includes('anurag'));
 
-*/
+//Convert String in Array
+console.log(name1.split(','));
 
-// # Primitive
+//**************************************Number and Maths**************************************** */
+const score = 400
+const balance = new Number(100)
+console.log(balance);
+console.log(balance.toString().length);
+//It give precision after Decimal
+console.log(balance.toFixed(2))
 
-// 7 Types : String Number Boolean null undefined Symbol BigInt
+const otherNumber = 23.8966
+//it give precision from starting Number
+console.log(otherNumber.toPrecision(3));
 
-const id = Symbol('123')
-const anotherID = Symbol('123')
+const hundred = 1000000
+console.log(hundred.toLocaleString('en-IN'));
 
-console.log(id === anotherID) //They both are not same
-// const bigNumber = 213154565421328186n;
+console.log(Math);
+console.log(Math.SQRT2);
+console.log(Math.abs(-4));
+
+//Give closest Value
+console.log(Math.round(4.6));
+//Give Highest Integer Closer to that Number
+console.log(Math.ceil(4.2));
+//Give Lowest Integer Closer to that Number
+console.log(Math.floor(4.9));
+console.log(Math.min(4,3,6,8));
+console.log(Math.max(4,3,6,8));
+
+console.log(Math.random());
+console.log(Math.random()*10 + 1);
+
+const min = 10;
+const max = 20;
+
+//General Formula
+console.log(Math.floor(Math.random() * (max - min + 1)) + min);
+
+// ***********************************************Date************************************************************
+
+let myDate  = new Date()
+console.log(myDate);
+
+console.log(myDate.toString());
+console.log(myDate.toLocaleString());
+console.log(typeof myDate);
+
+let CreatedDate = new Date(2023,0,23)
+let CreatedDate1 = new Date("2025-01-14")
+console.log(CreatedDate.toDateString());
+console.log(CreatedDate1.toLocaleString());
+console.log(CreatedDate1.getTime()); //This is In MilliSecond
 
 
-//Reference (Non Primitive)
+console.log(myDate.getMonth()+1); //+1 because month start with 0
 
-//Array Objects Functions
-
-//Array
-
-const cars = ["Lamborghini","Maclaren","Pagani","Ferrari"]
-
-//Object
-
-let user = {
-   name:"Anurag",
-   company:"Google"
-}
-
-//Function
-
-const greet = function(user) {
-   console.log(`Hello I am ${user.name} and I am working at ${user.company}`);  
-}
-
-greet(user)
+myDate.toLocaleString('default',{
+  weekday:"long",
+  timeZone: "Asia/Kolkata"
+})
