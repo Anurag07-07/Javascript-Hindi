@@ -24,14 +24,14 @@ console.log(typeof null);  //Object
 
 // *********************************Type Conversion*************************************************
 
-/*
 
+/*
 let score = "33"
 console.log(typeof score);
 let valueInNumber = Number(score)
 console.log(typeof valueInNumber);
-let value = "1234f"
-let valueInNumber2 = Number(value)
+let value5 = "1234f"
+let valueInNumber2 = Number(value5)
 console.log(valueInNumber2);
 let value1 = undefined
 let valueInNumber3 = Number(value1)
@@ -57,8 +57,8 @@ let number = 33;
 let string = String(number)
 console.log(string);
 console.log(typeof string)
-
 */
+
 
 // ****************************************Operations**************************************************
 

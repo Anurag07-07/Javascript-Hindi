@@ -21,6 +21,15 @@ console.log(anotherString);
 
 // Q what is difference between slice and substring
 
+/*
+
+Feature	          slice()	            substring()
+Negative indices	Counts from the end	Treated as 0
+Start > End behavior	Returns an empty string	Swaps start and end
+Use case preference	Substring with flexibility	Simpler cases without negatives
+
+*/
+
 const newStringOne = "    hitesh    "
 console.log(newStringOne);
 console.log(newStringOne.trim());
