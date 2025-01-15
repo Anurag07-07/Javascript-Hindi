@@ -70,3 +70,6 @@ console.log(object());
   console.log(num1+num2) 
 )
 )(45,56)
+
+
+//Watch Lecture 25 
